@@ -1,3 +1,5 @@
+import AnimatedBackground from "@/components/AnimatedBackground";
+
 const Skills = () => {
   const skillCategories = [
     {
@@ -23,7 +25,9 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="section-padding">
+    <section id="skills" className="relative section-padding">
+      <AnimatedBackground variant="default" />
+      
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

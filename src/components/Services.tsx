@@ -6,6 +6,7 @@ import {
   Brain,
   TestTube,
 } from "lucide-react";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const Services = () => {
   const services = [
@@ -48,7 +49,9 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding">
+    <section id="services" className="relative section-padding">
+      <AnimatedBackground variant="subtle" />
+      
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -72,7 +75,7 @@ const Services = () => {
               className="group relative p-8 bg-card rounded-2xl border border-border hover:border-primary/30 transition-all duration-300 card-hover overflow-hidden"
             >
               {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full transition-all duration-300 group-hover:from-primary/10" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent dark:from-primary/10 rounded-bl-full transition-all duration-300 group-hover:from-primary/10 dark:group-hover:from-primary/20" />
 
               {/* Icon */}
               <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6 shadow-glow-primary transition-transform duration-300 group-hover:scale-110">
