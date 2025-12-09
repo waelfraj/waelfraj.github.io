@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +19,11 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { href: "#about", label: "À propos" },
-    { href: "#skills", label: "Compétences" },
-    { href: "#projects", label: "Projets" },
-    { href: "#services", label: "Services" },
-    { href: "#contact", label: "Contact" },
+    { href: isHomePage ? "#about" : "/#about", label: "À propos" },
+    { href: isHomePage ? "#skills" : "/#skills", label: "Compétences" },
+    { href: isHomePage ? "#projects" : "/#projects", label: "Projets" },
+    { href: isHomePage ? "#services" : "/#services", label: "Services" },
+    { href: isHomePage ? "#contact" : "/#contact", label: "Contact" },
   ];
 
   return (
@@ -31,9 +35,9 @@ const Header = () => {
       }`}
     >
       <div className="container-custom flex items-center justify-between">
-        <a href="#" className="text-xl font-bold gradient-text">
+        <Link to="/" className="text-xl font-bold gradient-text">
           WF
-        </a>
+        </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
@@ -48,24 +52,28 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <Button variant="default" size="sm" asChild>
-            <a href="#contact">Contactez-moi</a>
+            <a href={isHomePage ? "#contact" : "/#contact"}>Contactez-moi</a>
           </Button>
         </div>
 
         {/* Mobile Menu Button */}
-        <button
-          className="md:hidden p-2"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {isMobileMenuOpen ? (
-            <X className="h-6 w-6 text-foreground" />
-          ) : (
-            <Menu className="h-6 w-6 text-foreground" />
-          )}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="p-2"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6 text-foreground" />
+            ) : (
+              <Menu className="h-6 w-6 text-foreground" />
+            )}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}
@@ -83,7 +91,7 @@ const Header = () => {
               </a>
             ))}
             <Button variant="default" className="mt-4" asChild>
-              <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
+              <a href={isHomePage ? "#contact" : "/#contact"} onClick={() => setIsMobileMenuOpen(false)}>
                 Contactez-moi
               </a>
             </Button>

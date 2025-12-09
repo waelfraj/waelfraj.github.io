@@ -1,4 +1,5 @@
 import { Code2, Smartphone, Building2 } from "lucide-react";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const About = () => {
   const highlights = [
@@ -20,7 +21,9 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="section-padding bg-card">
+    <section id="about" className="relative section-padding bg-card">
+      <AnimatedBackground variant="subtle" />
+      
       <div className="container-custom">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}

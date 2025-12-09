@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import AnimatedBackground from "@/components/AnimatedBackground";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -68,7 +69,9 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="section-padding bg-card">
+    <section id="contact" className="relative section-padding bg-card">
+      <AnimatedBackground variant="gradient" />
+      
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">

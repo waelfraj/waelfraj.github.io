@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { ExternalLink, FileSpreadsheet } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import { projects, fetchProjectsFromSpreadsheet, type Project } from "@/data/projects";
 
 const Projects = () => {
@@ -37,7 +39,9 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="section-padding bg-card">
+    <section id="projects" className="relative section-padding bg-card">
+      <AnimatedBackground variant="gradient" />
+      
       <div className="container-custom">
         {/* Section header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -78,19 +82,23 @@ const Projects = () => {
                 className="group bg-background rounded-2xl border border-border overflow-hidden card-hover"
               >
                 {/* Project image */}
-                <div
-                  className={`h-48 bg-gradient-to-br ${getProjectGradient(index)} flex items-center justify-center`}
-                >
-                  <div className="text-6xl font-bold text-primary/20 group-hover:text-primary/30 transition-colors">
-                    {project.name.charAt(0)}
+                <Link to={`/projects/${project.id}`}>
+                  <div
+                    className={`h-48 bg-gradient-to-br ${getProjectGradient(index)} flex items-center justify-center cursor-pointer`}
+                  >
+                    <div className="text-6xl font-bold text-primary/20 group-hover:text-primary/30 transition-colors">
+                      {project.name.charAt(0)}
+                    </div>
                   </div>
-                </div>
+                </Link>
 
                 {/* Project content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
-                    {project.name}
-                  </h3>
+                  <Link to={`/projects/${project.id}`}>
+                    <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors cursor-pointer">
+                      {project.name}
+                    </h3>
+                  </Link>
                   <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                     {project.description}
                   </p>
@@ -114,10 +122,10 @@ const Projects = () => {
                     className="w-full group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-all"
                     asChild
                   >
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    <Link to={`/projects/${project.id}`}>
                       Voir le projet
                       <ExternalLink className="ml-2 h-4 w-4" />
-                    </a>
+                    </Link>
                   </Button>
                 </div>
               </article>
