@@ -49,20 +49,21 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="relative section-padding">
-      <AnimatedBackground variant="subtle" />
+    <section id="services" className="relative section-padding bg-background">
+      <AnimatedBackground variant="gradient" />
       
-      <div className="container-custom">
+      <div className="container-custom relative z-10">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="inline-flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-widest mb-6">
+            <span className="w-8 h-0.5 bg-gradient-to-r from-primary to-transparent" />
             Services
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 leading-tight">
             Comment puis-je{" "}
-            <span className="gradient-text">vous aider?</span>
+            <span className="gradient-cyber bg-clip-text text-transparent">vous aider?</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl text-muted-foreground leading-relaxed">
             Des solutions sur mesure pour transformer vos idées en produits digitaux.
           </p>
         </div>
@@ -72,21 +73,22 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group relative p-8 bg-card rounded-2xl border border-border hover:border-primary/30 transition-all duration-300 card-hover overflow-hidden"
+              className="group relative p-8 glass-effect rounded-2xl border border-border hover:border-primary/50 transition-all duration-500 card-hover overflow-hidden"
             >
               {/* Background decoration */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent dark:from-primary/10 rounded-bl-full transition-all duration-300 group-hover:from-primary/10 dark:group-hover:from-primary/20" />
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-primary/5 to-transparent rounded-bl-full transition-all duration-500 group-hover:from-primary/15 group-hover:scale-110" />
+              <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-accent/5 to-transparent rounded-tr-full transition-all duration-500 group-hover:from-accent/15 group-hover:scale-110 opacity-0 group-hover:opacity-100" />
 
               {/* Icon */}
-              <div className="relative w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-primary-glow flex items-center justify-center mb-6 shadow-glow-primary transition-transform duration-300 group-hover:scale-110">
-                <service.icon className="h-6 w-6 text-primary-foreground" />
+              <div className="relative w-16 h-16 rounded-2xl gradient-primary flex items-center justify-center mb-8 shadow-glow-primary transition-all duration-500 group-hover:scale-110 group-hover:rotate-3 group-hover:shadow-neon-blue">
+                <service.icon className="h-7 w-7 text-primary-foreground" />
               </div>
 
               {/* Content */}
-              <h3 className="relative text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+              <h3 className="relative text-2xl font-extrabold text-foreground mb-4 group-hover:text-primary transition-colors">
                 {service.title}
               </h3>
-              <p className="relative text-muted-foreground leading-relaxed">
+              <p className="relative text-muted-foreground leading-relaxed text-base">
                 {service.description}
               </p>
             </div>

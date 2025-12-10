@@ -69,20 +69,21 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="relative section-padding bg-card">
-      <AnimatedBackground variant="gradient" />
+    <section id="contact" className="relative section-padding bg-card/50 backdrop-blur-sm border-t border-b border-border/50">
+      <AnimatedBackground variant="subtle" />
       
-      <div className="container-custom">
+      <div className="container-custom relative z-10">
         {/* Section header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-sm font-semibold text-accent uppercase tracking-wider mb-4">
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <span className="inline-flex items-center gap-2 text-sm font-bold text-primary uppercase tracking-widest mb-6">
+            <span className="w-8 h-0.5 bg-gradient-to-r from-primary to-transparent" />
             Contact
           </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-foreground mb-8 leading-tight">
             Travaillons{" "}
-            <span className="gradient-text">ensemble</span>
+            <span className="gradient-cyber bg-clip-text text-transparent">ensemble</span>
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl text-muted-foreground leading-relaxed">
             Vous avez un projet en tête ? N'hésitez pas à me contacter.
           </p>
         </div>
@@ -94,24 +95,28 @@ const Contact = () => {
               Informations de contact
             </h3>
             
-            {contactInfo.map((info) => (
-              <div key={info.label} className="flex items-center gap-4 group">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <info.icon className="h-5 w-5 text-primary" />
+            {contactInfo.map((info, index) => (
+              <div 
+                key={info.label} 
+                className="group flex items-center gap-4 p-4 rounded-xl bg-background/50 border border-border/50 hover:border-primary/30 hover:bg-primary/5 transition-all duration-300 hover:scale-105"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <div className="w-14 h-14 rounded-xl gradient-primary flex items-center justify-center shadow-glow-primary group-hover:scale-110 group-hover:shadow-neon-blue transition-all duration-300">
+                  <info.icon className="h-6 w-6 text-primary-foreground" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground">{info.label}</p>
+                  <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">{info.label}</p>
                   {info.href ? (
                     <a
                       href={info.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-medium text-foreground hover:text-primary transition-colors"
+                      className="text-base font-bold text-foreground hover:text-primary transition-colors"
                     >
                       {info.value}
                     </a>
                   ) : (
-                    <p className="font-medium text-foreground">{info.value}</p>
+                    <p className="text-base font-bold text-foreground">{info.value}</p>
                   )}
                 </div>
               </div>
@@ -138,48 +143,48 @@ const Contact = () => {
           <div className="lg:col-span-3">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-6">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Nom complet
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    type="text"
-                    placeholder="Votre nom"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="h-12"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-foreground mb-2"
-                  >
-                    Email
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    placeholder="votre@email.com"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="h-12"
-                  />
-                </div>
+              <div>
+                <label
+                  htmlFor="name"
+                  className="block text-sm font-semibold text-foreground mb-2"
+                >
+                  Nom complet
+                </label>
+                <Input
+                  id="name"
+                  name="name"
+                  type="text"
+                  placeholder="Votre nom"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="h-12 border-primary/20 focus:border-primary focus:ring-primary/20 transition-all duration-300"
+                />
+              </div>
+              <div>
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-semibold text-foreground mb-2"
+                >
+                  Email
+                </label>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="votre@email.com"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="h-12 border-primary/20 focus:border-primary focus:ring-primary/20 transition-all duration-300"
+                />
+              </div>
               </div>
 
               <div>
                 <label
                   htmlFor="subject"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  className="block text-sm font-semibold text-foreground mb-2"
                 >
                   Sujet
                 </label>
@@ -191,14 +196,14 @@ const Contact = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="h-12"
+                  className="h-12 border-primary/20 focus:border-primary focus:ring-primary/20 transition-all duration-300"
                 />
               </div>
 
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-foreground mb-2"
+                  className="block text-sm font-semibold text-foreground mb-2"
                 >
                   Message
                 </label>
@@ -210,7 +215,7 @@ const Contact = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="resize-none"
+                  className="resize-none border-primary/20 focus:border-primary focus:ring-primary/20 transition-all duration-300"
                 />
               </div>
 
