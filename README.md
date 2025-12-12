@@ -1,73 +1,106 @@
-# Welcome to your Lovable project
+# Portfolio Wael Fraj
 
-## Project info
+Portfolio professionnel moderne créé avec React et Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## 🚀 Fonctionnalités
 
-## How can I edit this code?
+- **Hero Section** : Présentation avec CTA buttons
+- **À propos** : Section professionnelle
+- **Compétences** : Technologies Web, Mobile, Architecture
+- **Projets** : Chargement dynamique depuis CSV ou Google Sheets
+- **Services** : Présentation des services offerts
+- **Contact** : Formulaire de contact avec fallback mailto
 
-There are several ways of editing your application.
+## 📦 Installation
 
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```bash
+npm install
 ```
 
-**Edit a file directly in GitHub**
+## 🏃 Démarrage
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm start
+```
 
-**Use GitHub Codespaces**
+L'application sera accessible sur `http://localhost:3000`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 📊 Gestion des Projets
 
-## What technologies are used for this project?
+### Format CSV
 
-This project is built with:
+Les projets peuvent être chargés via un fichier CSV avec le format suivant :
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+```csv
+name,description,techStack,image,link,demoLink
+Mon Projet,Description du projet,React,Node.js,https://image-url.jpg,https://github.com/user/repo,https://demo-url.com
+```
 
-## How can I deploy this project?
+**Colonnes :**
+- `name` : Nom du projet
+- `description` : Description du projet
+- `techStack` : Technologies utilisées (séparées par des virgules)
+- `image` : URL de l'image du projet
+- `link` : Lien GitHub/code source
+- `demoLink` : Lien vers la démo (optionnel)
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+### Google Sheets
 
-## Can I connect a custom domain to my Lovable project?
+1. Créez un Google Sheet avec les mêmes colonnes que le CSV
+2. Partagez le sheet en mode "Tout le monde avec le lien peut voir"
+3. Copiez l'URL du sheet
+4. Collez l'URL dans le champ "URL Google Sheets" de la section Projets
+5. Cliquez sur "Charger"
 
-Yes, you can!
+Les projets sont automatiquement sauvegardés dans le localStorage du navigateur.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 🎨 Personnalisation
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+### Couleurs
+
+Les couleurs sont définies dans `tailwind.config.js` :
+
+- **Teal** : `#14b8a6`
+- **Orange** : `#f97316`
+- **Navy** : `#0a192f`
+
+### Typographie
+
+- **Sans-serif** : Inter (Google Fonts)
+- **Monospace** : SF Mono, Monaco, Inconsolata
+
+## 🛠️ Technologies
+
+- React 18
+- Tailwind CSS 3
+- Framer Motion (animations)
+- Lucide React (icônes)
+
+## 📱 Responsive
+
+Le portfolio est entièrement responsive avec une approche mobile-first.
+
+## 🚢 Déploiement
+
+### Netlify / Vercel
+
+Le projet est prêt pour le déploiement sur Netlify ou Vercel :
+
+```bash
+npm run build
+```
+
+Le dossier `build` contient les fichiers statiques à déployer.
+
+### GitHub Pages
+
+```bash
+npm run build
+npm run deploy
+```
+
+## 📝 Notes
+
+- Les projets sont sauvegardés dans le localStorage
+- Le formulaire de contact utilise mailto comme fallback
+- Pour une intégration backend, modifiez `Contact.jsx` pour envoyer les données à votre API

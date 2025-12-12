@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --dark-navy: #020c1b;
+  --navy: #0a192f;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --navy-shadow: rgba(2, 12, 27, 0.7);
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+  --teal: #14b8a6;
+  --teal-light: #5eead4;
+  --teal-dark: #0f766e;
+  --orange: #f97316;
+  --orange-light: #fb923c;
+  --orange-dark: #ea580c;
+
+  /* Premium Typography */
+  --font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+}
+
+@font-face {
+  font-family: "NTR";
+  font-weight: 200;
+  font-display: fallback;
+  src: url("../../public/fonts/NTR-Regular.ttf") format("truetype");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Premium Animations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  visibility: hidden;
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), 
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, visibility;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.App {
+  background-color: var(--navy);
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+#content {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding-right: 100px; /* Space for sidebar on desktop */
+}
+
+@media only screen and (max-width: 768px) {
+  #content {
+    padding-right: 0;
+  }
+}
+
+/* Premium Selection */
+::selection {
+  background: var(--teal);
+  color: var(--navy);
+}
+
+::-moz-selection {
+  background: var(--teal);
+  color: var(--navy);
+}
+
+/* Section Headers */
+.section-header {
+  display: flex;
+  align-items: center;
+  padding-bottom: 60px;
+  width: 100%;
+  position: relative;
+}
+
+.section-header::after {
+  content: "";
+  display: block;
+  width: 300px;
+  height: 1px;
+  margin-left: 20px;
+  background: linear-gradient(to right, var(--lightest-navy), transparent);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  color: var(--lightest-slate);
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.section-title::before {
+  content: "//";
+  color: var(--teal);
+  font-family: var(--font-mono);
+  font-size: 0.6em;
+  margin-right: 12px;
+  opacity: 0.7;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--lightest-navy);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--teal);
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 1024px) {
+  #content {
+    padding-right: 0;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
+
+  #content {
+    width: 100%;
+    padding: 0;
+  }
+
+  .section-header {
+    padding-bottom: 40px;
+  }
+
+  .section-header::after {
+    display: none;
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+}
+
+/* Premium Focus States */
+*:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Smooth Transitions */
+a, button {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Premium Shadows */
+.shadow-premium {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3),
+              0 0 0 1px rgba(20, 184, 166, 0.1);
+}
+
+.shadow-premium-hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+              0 0 0 1px rgba(20, 184, 166, 0.2);
+}
+
+/* Enhanced Desktop Layout */
+@media only screen and (min-width: 1025px) {
+  #content {
+    padding-right: 120px;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  #content {
+    padding-right: 140px;
+  }
+}
+
+/* Better Grid Responsiveness */
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  .projects-grid,
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Smooth Scrolling Enhancement */
+html {
+  scroll-padding-top: 80px;
+}
