@@ -62,8 +62,8 @@ const Skills = () => {
                     key={skill}
                     className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-500 hover-lift border ${
                       category.color === "accent"
-                        ? "bg-accent/10 text-accent border-accent/20 hover:bg-accent/20 hover:border-accent hover:shadow-neon-orange"
-                        : "bg-primary/10 text-primary border-primary/20 hover:bg-primary/20 hover:border-primary hover:shadow-neon-blue"
+                        ? "bg-accent/20 text-accent border-accent/40 hover:bg-accent/30 hover:border-accent/60 hover:shadow-neon-orange"
+                        : "bg-primary/20 text-primary border-primary/40 hover:bg-primary/30 hover:border-primary/60 hover:shadow-neon-blue"
                     }`}
                     style={{
                       animationDelay: `${(categoryIndex * 100) + (skillIndex * 50)}ms`,
